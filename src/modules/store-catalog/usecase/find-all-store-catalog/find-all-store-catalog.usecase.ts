@@ -1,11 +1,11 @@
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
-import ProductGateway from "../../gateway/product.gateway";
+import StoreCatalogGateway from "../../gateway/store-catalog.gateway";
 
-export default class FindAllProductsUsecase implements UseCaseInterface {
-  constructor(private productRepository: ProductGateway) {}
+export default class FindAllStoreCatalogUseCase implements UseCaseInterface {
+  constructor(private storeCatalogRepository: StoreCatalogGateway)  {}
 
   async execute(): Promise<any> {
-    const products = await this.productRepository.findAll();
+    const products = await this.storeCatalogRepository.findAll();
 
     return {
       products: products.map((product) => ({

@@ -1,4 +1,4 @@
-import Address from "../../../@shared/domain/value-object/address"
+import Address from "../../../@shared/domain/value-object/address.value-object"
 import Id from "../../../@shared/domain/value-object/id.value-object"
 import Client from "../../domain/client.entity"
 import FindClientUseCase from "./find-client.usecase"
@@ -8,14 +8,14 @@ const client = new Client({
   name: "Lucian",
   email: "lucian@123.com",
   document: "1234-5678",
-  address: new Address(
-    "Rua 123",
-    "99",
-    "Casa Verde",
-    "Criciúma",
-    "SC",
-    "88888-888",
-  )
+  address: new Address({
+    street: "Rua 123",
+    number: "99",
+    complement: "Casa Verde",
+    city: "Criciúma",
+    state: "SC",
+    zipCode: "88888-888"
+  }),
 })
 
 const MockRepository = () => {

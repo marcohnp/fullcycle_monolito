@@ -1,4 +1,4 @@
-import Address from "../../@shared/domain/value-object/address"
+import Address from "../../@shared/domain/value-object/address.value-object"
 
 export interface AddClientFacadeInputDto {
   id?: string

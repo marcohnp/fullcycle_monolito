@@ -1,4 +1,4 @@
-import Address from "../../../@shared/domain/value-object/address";
+import Address from "../../../@shared/domain/value-object/address.value-object";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import InvoiceItem from "../../domain/invoice-item.entity";
 import Invoice from "../../domain/invoice.entity";
@@ -8,14 +8,14 @@ const invoice = new Invoice({
     id: new Id("1"),
     name: "Invoice 1",
     document: "123.456.789-10",
-    address: new Address(
-        "Street 1",
-        "123",
-        "Complement 1",
-        "City 1",
-        "State 1",
-        "12345-678"
-    ),
+    address: new Address({
+        street: "Street 1",
+        number: "123",
+        complement: "Complement 1",
+        city: "City 1",
+        state: "State 1",
+        zipCode: "12345-678"
+    }),
     items: [new InvoiceItem({
         id: new Id("1"),
         name: "Item 1",

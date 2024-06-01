@@ -3,7 +3,7 @@ import { InvoiceItemModel } from "./invoice-item.model";
 import { InvoiceModel } from "./invoice.model";
 import Invoice from "../domain/invoice.entity";
 import Id from "../../@shared/domain/value-object/id.value-object";
-import Address from "../../@shared/domain/value-object/address";
+import Address from "../../@shared/domain/value-object/address.value-object";
 import InvoiceItem from "../domain/invoice-item.entity";
 import InvoiceRepository from "./invoice.repository";
 
@@ -23,14 +23,14 @@ const invoiceProps = {
     id: new Id("1"),
     name: "Costumer 1",
     document: "123.456.789-10",
-    address: new Address(
-        "Street 1",
-        "123",
-        "Complement 1",
-        "City 1",
-        "State 1",
-        "Zip Code 1"
-    ),
+    address: new Address({
+        street: "Street 1",
+        number: "123",
+        complement: "Complement 1",
+        city: "City 1",
+        state: "State 1",
+        zipCode: "Zip Code 1"
+    }),
     items: [new InvoiceItem(invoiceItemProps1), new InvoiceItem(invoiceItemProps2)],
     createdAt: new Date(),
     updatedAt: new Date(),

@@ -1,4 +1,4 @@
-import Address from "../../../@shared/domain/value-object/address";
+import Address from "../../../@shared/domain/value-object/address.value-object";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import InvoiceItem from "../../domain/invoice-item.entity";
@@ -22,14 +22,14 @@ export default class GenerateInvoiceUseCase  implements UseCaseInterface{
             id: new Id(input.id),
             name: input.name,
             document: input.document,
-            address: new Address(
-                input.street,
-                input.number,
-                input.complement,
-                input.city,
-                input.state,
-                input.zipCode
-            ),
+            address: new Address({
+                street: input.street,
+                number: input.number,
+                complement: input.complement,
+                city: input.city,
+                state: input.state,
+                zipCode: input.zipCode,
+            }),
             items: input.items.map(
                 (item) =>
                   new InvoiceItem({
