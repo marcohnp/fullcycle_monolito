@@ -6,7 +6,6 @@ export const checkoutRoute = express.Router();
 checkoutRoute.post('/', async (req: Request, res: Response) => {
   const facade = PlaceOrderFacadeFactory.create();
   try {
-    console.log(req.body)
     const input = {
       id: req.body.id,
       clientId: req.body.clientId,
@@ -16,8 +15,6 @@ checkoutRoute.post('/', async (req: Request, res: Response) => {
     const output = await facade.add(input);
     res.send(output);
   } catch (err) {
-
-    console.log(err)
     res.status(500).send(err)
   }
 });

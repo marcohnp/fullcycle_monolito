@@ -24,9 +24,7 @@ export default class PlaceOrderFacade implements PlaceOrderFacadeInterface {
         productId: items.productId
       })),
     };
-    console.log("facade: " + input.id)
-    console.log("facade: " + input.clientId)
-    console.log("facade: " + input.products)
+    
     const usecase = await this._addUsecase.execute(placeOrderInputDto);    
 
     return {

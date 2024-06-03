@@ -5,8 +5,6 @@ import StoreCatalogModel from "./store-catalog.model";
 
 export default class StoreCatalogRepository implements StoreCatalogGateway {
   async add(storeCatalog: StoreCatalog): Promise<void> {
-    console.log("testern13123")
-    console.log("repositoru, create, storeCatalog: "+ storeCatalog)
     await StoreCatalogModel.create({
       id: storeCatalog.id.id,
       name: storeCatalog.name,
@@ -31,14 +29,11 @@ export default class StoreCatalogRepository implements StoreCatalogGateway {
   }
 
   async find(id: string): Promise<StoreCatalog> {
-    console.log("repositoru, id: "+ id)
     const product = await StoreCatalogModel.findOne({ 
       where: {
         id,
       },
     });
-
-    console.log("repositoru, product: "+ product)
 
     return new StoreCatalog({
       id: new Id(product.id),

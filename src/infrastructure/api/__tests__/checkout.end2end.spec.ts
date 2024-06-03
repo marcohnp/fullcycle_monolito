@@ -126,8 +126,6 @@ describe("E2E test for checkout", () => {
       .get("/checkout/1")
       .send();
 
-    console.log(resp.body);
-
     const expectedResponse = {
       id: '1',
       name: 'Client 1',
